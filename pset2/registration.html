@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+</head>
+
+<body>
+<center>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <form action="login.html" onsubmit="return verifyPassword()" method="GET">
+
+        <h1>REGISTRATION</h1>
+       
+
+
+
+        <label for="name">Name : </label><br>
+        <input type="text" name="name" id="name" /><br><br>
+
+        <label for="password">Password : </label><br>
+        <input type="password" name="password" id="password" />
+        <span id="message" style="color:red"> </span> <br>
+        </label>
+
+        <br>
+
+        <label for="confirm password">Re-enter password : </label><br>
+        <input type="password" name="password re-enter" id="password1" />
+        <div class="registrationFormAlert" style="color:green;" id="CheckPasswordMatch"></div>
+
+        <br>
+
+        <label for="email">Email : </label><br>
+        <input type="email" name="email" id="email" /><br><br>
+
+        <label for="phone">Phone : </label><br>
+        <input type="tel" name="phone" id="phone" />
+        <span id="msg" style="color:red"> </span>
+        <span id="charMsg" style="color:red"> </span> <br>
+
+        <br>
+        <label for="text">Address : </label><br>
+        <input type="text" name="address" id="address" />
+
+        <p>Already register? <a href="login.html">Login</a></p>
+        </h3>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+	</center>
+    <script>
+        function Validate(name,email,password,repassword,phone,address){
+        var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}$/;
+        var mailformat = /^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$)/;
+        if(name == ""){
+            alert("please enter name");
+            event.preventDefault();
+        } else if(name.length < 3){
+            alert("name is too short, please enter a valid name");
+            event.preventDefault();
+        } else if(email == ""){
+            alert("please enter email");
+            event.preventDefault();
+        } else if(!email.match(mailformat)){
+            alert("invalid email format");
+            event.preventDefault();
+        } else if(password == ""){
+            alert("please enter password");
+            event.preventDefault();
+        } else if(!password.match(passw)) {
+            alert('Please enter at least 5 character including one lowercase character, one uppercase character and a numeric for password');
+            event.preventDefault();
+        } else if(repassword == "") {
+            alert("please enter repeat password");
+            event.preventDefault();
+        } else if(!repassword.match(password)) {
+            alert('your password does not match');
+            event.preventDefault();
+        } else if(phone == "") {
+            alert("please enter phone no");
+            event.preventDefault();
+        } else if(isNaN(phone)) {
+            alert("your phone no is invalid, please enter number only");
+            event.preventDefault();
+        } else if(phone.length<10){
+            alert("your phone no is too short please enter a valid phone number");
+            event.preventDefault();
+        } else if(address == "") {
+            alert("please enter address");
+            event.preventDefault();
+        } else if(address.length<5) {
+            alert("address is too short, please enter a valid address");
+            event.preventDefault();
+        }
+    }
+</script>
+</body>
+
+</html>

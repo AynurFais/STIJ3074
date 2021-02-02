@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+</head>
+<body>
+<center>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <form action="success.html" onsubmit="return verifyPassword()" method="GET">
+        <div id="">
+		
+            <h1>Login</h1>    
+        </div>
+        <div>
+
+            <label for="email">Email : </label><br>
+            <input type="email" name="email" id="email" />
+        </div>
+        <div>
+            <label for="password">Password : </label><br>
+            <input type="password" name="password" id="password" />
+            <span id="message" style="color:red"> </span> <br>
+            </label>
+        </div>
+       <a href="register.html">Click here to register</a>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+	</center>
+    <script>
+	
+        function CheckForm(inputtxt,inputpwd,inputpwd2,event) 
+        { 
+            var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{1,20}$/;
+            var mailformat = /^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$)/;
+            if(inputtxt == ""){
+                alert("please enter email");
+                event.preventDefault();
+            } else if(!inputtxt.match(mailformat)){
+                alert("invalid email format")
+                event.preventDefault();
+            } else if(inputpwd == ""){
+                alert("please enter password");
+                event.preventDefault();
+            } else if(inputpwd2.value.match(passw)) { 
+                alert("correct");
+                return true;
+            } else { 
+                alert('Please enter one lowercase character, one uppercase character and a numeric for password');
+                event.preventDefault();
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
